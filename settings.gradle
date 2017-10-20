@@ -1,0 +1,4 @@
+rootProject.name = 'aialm'
+include 'eureka-server'
+include 'config-server'
+

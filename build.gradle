@@ -1,0 +1,71 @@
+buildscript {
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://10.1.195.28:8081/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "io.spring.gradle:dependency-management-plugin:${springDependencyManagementVersion}"
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.9"
+
+    }
+}
+
+allprojects {
+    group 'com.ai.app'
+    version '${version}'
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://10.1.195.28:8081/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        mavenCentral()
+    }
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
+
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+        }
+    }
+
+
+    jar {
+        version = "$version"
+    }
+
+
+    if (it.name.startsWith("service-")) {
+
+    }
+}
