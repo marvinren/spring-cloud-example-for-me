@@ -1,0 +1,19 @@
+server:
+  port: 10001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+#    oracle数据库
+#    url: jdbc:oracle:thin:@10.1.195.102:1521:AIDB
+    url: jdbc:oracle:thin:@//10.1.195.102:1521/AIDB
+    username: aialm2
+    password: aialm2
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml

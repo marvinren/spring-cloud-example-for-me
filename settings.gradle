@@ -1,4 +1,7 @@
 rootProject.name = 'aialm'
 include 'eureka-server'
 include 'config-server'
+include 'user-service'
+include 'resource-service'
+include 'zuul-server'
 

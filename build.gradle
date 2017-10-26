@@ -65,7 +65,12 @@ subprojects {
     }
 
 
-    if (it.name.startsWith("service-")) {
+    if (it.name.endsWith("-service")) {
+
+
+
+
+
 
     }
 }

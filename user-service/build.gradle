@@ -1,0 +1,25 @@
+dependencies {
+
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
+    compile 'org.springframework.cloud:spring-cloud-starter-feign'
+    compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+    compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:${springBootMybatisVersion}"
+    compile 'com.zaxxer:HikariCP'
+
+    compile("io.springfox:springfox-swagger2:${springfoxVersion}") {
+        exclude module: 'mapstruct'
+    }
+    compile "io.springfox:springfox-bean-validators:${springfoxVersion}"
+    compile "io.springfox:springfox-swagger-ui:${springfoxVersion}"
+
+    testCompile "junit:junit:${junitVersion}"
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+    compile files("$rootDir/lib/ojdbc6.jar")
+}
+
+apply from: '../gradle/lombok.gradle'
+apply from: '../gradle/mapstruct.gradle'
