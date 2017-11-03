@@ -1,0 +1,67 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  application:
+      name: api-gateway-server
+
+server:
+  port: 8080
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+
+zuul:
+  routes:
+    uaa:
+      path: /uaa/**
+      sensitiveHeaders:
+      serviceId: auth-server
+    task:
+      path: /task/**
+      sensitiveHeaders:
+      serviceId: task-service
+    resource:
+      path: /resource/**
+      sensitiveHeaders:
+      serviceId: resource-service
+  add-proxy-headers: true
+
+management:
+  security:
+    enabled: false
+
+
+auth-server: localhost:9999
+security:
+  oauth2:
+    client:
+      access-token-uri: http://${auth-server}/oauth/token
+      user-authorization-uri: http://${auth-server}/oauth/authorize
+      client-id: portal
+      client-secret: marvinren
+      scope: all
+    resource:
+      user-info-uri: http://${auth-server}/user
+      prefer-token-info: false
+
+
+#ssoServiceUrl: https://github.com/login
+#security:
+#  user:
+#    password: user  # 直接登录时的密码
+#  ignored: /
+#  sessions: never   # session策略
+#  oauth2:
+#    sso:
+#      loginPath: /login   # 登录路径
+#    client:
+#      clientId: 8a34fcfcf2db8f47f433
+#      clientSecret: 4a70857260cd52176369570c3cf42e4e5df7710e
+#      accessTokenUri: https://github.com/login/oauth/access_token
+#      userAuthorizationUri: https://github.com/login/oauth/authorize
+#    resource:
+#      userInfoUri: https://api.github.com/user
+#      preferTokenInfo: false

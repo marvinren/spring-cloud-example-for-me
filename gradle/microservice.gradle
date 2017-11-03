@@ -1,0 +1,30 @@
+dependencies {
+    //spring cloud's dependencies
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
+    compile 'org.springframework.cloud:spring-cloud-starter-feign'
+    compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
+
+    //actuator
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+    //jpa
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'com.zaxxer:HikariCP'
+
+    //oracle
+    compile files("$rootDir/lib/ojdbc6.jar")
+
+
+    //dev or prod configure
+    if (project.hasProperty('prod')) {
+        //apply from: 'gradle/profile_prod.gradle'
+    } else {
+        dependencies {
+            compile "org.springframework.boot:spring-boot-devtools"
+            compile "io.springfox:springfox-swagger2:2.6.0"
+            compile "io.springfox:springfox-swagger-ui:2.6.0"
+        }
+    }
+
+}

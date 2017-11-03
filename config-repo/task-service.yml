@@ -1,5 +1,5 @@
 server:
-  port: 10009
+  port: 10008
 
 eureka:
   client:
@@ -20,9 +20,3 @@ spring:
         hbm2ddl:
           auto: create-drop
     show-sql: true
-
-  devtools:
-    restart:
-      enabled: true
-    livereload:
-      enabled: true

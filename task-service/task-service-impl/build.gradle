@@ -1,0 +1,8 @@
+apply from: '../../gradle/microservice.gradle'
+apply from: '../../gradle/lombok.gradle'
+apply from: '../../gradle/mapstruct.gradle'
+
+dependencies{
+    compile project(":task-service:task-service-api")
+
+}
