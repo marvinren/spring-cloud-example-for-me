@@ -1,6 +1,7 @@
 package com.ai.app.task.configure;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -19,7 +20,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Description:
  */
 @EnableSwagger2
-@Profile({"dev","test"})
 @Configuration
 public class Swagger2Configure {
     @Bean
@@ -27,7 +27,7 @@ public class Swagger2Configure {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ai"))
+                .apis(RequestHandlerSelectors.basePackage("com.ai.app"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -37,7 +37,6 @@ public class Swagger2Configure {
                 .title("通过Swagger生成的api文档")
                 .description("")
                 .termsOfServiceUrl("")
-                .contact("marvinren")
                 .version("1.0")
                 .build();
     }

@@ -15,6 +15,11 @@ dependencies {
     //oracle
     compile files("$rootDir/lib/ojdbc6.jar")
 
+    //liquibase
+    compile('org.liquibase:liquibase-core')
+
+    //test
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 
     //dev or prod configure
     if (project.hasProperty('prod')) {

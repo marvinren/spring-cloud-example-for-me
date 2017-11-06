@@ -36,3 +36,17 @@
 
 # Gateway
 * 基础配置
+
+# docker
+
+# task
+* 超时
+* 中断
+* fire
+* misfire
+* status
+* 串并行
+* 结果回收
+* 创建任务接口feign
+* stream
+* Spring data batch？

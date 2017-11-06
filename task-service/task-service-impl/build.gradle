@@ -4,5 +4,7 @@ apply from: '../../gradle/mapstruct.gradle'
 
 dependencies{
     compile project(":task-service:task-service-api")
+    compile ("org.quartz-scheduler:quartz:2.3.0")
+    compile ("org.quartz-scheduler:quartz-jobs:2.3.0")
 
 }

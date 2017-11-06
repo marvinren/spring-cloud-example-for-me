@@ -1,0 +1,46 @@
+databaseChangeLog:
+- changeSet:
+    id: 1509702407409-371
+    author: Administrator (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ID
+            type: NUMBER(19, 0)
+        - column:
+            name: CRON
+            type: VARCHAR2(255 CHAR)
+        - column:
+            constraints:
+              nullable: false
+            name: INSTANT
+            type: NUMBER(1, 0)
+        - column:
+            name: SCHEDULE_NAME
+            type: VARCHAR2(255 CHAR)
+        - column:
+            constraints:
+              nullable: false
+            name: TASK_NAME
+            type: VARCHAR2(255 CHAR)
+        tableName: REN_TASK
+
+- changeSet:
+    id: 1509702407409-626
+    author: Administrator (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: ID
+        indexName: SYS_C0016638
+        tableName: REN_TASK
+        unique: true
+    - addPrimaryKey:
+        columnNames: ID
+        constraintName: SYS_C0016638
+        forIndexName: SYS_C0016638
+        tableName: REN_TASK

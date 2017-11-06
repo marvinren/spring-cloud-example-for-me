@@ -15,8 +15,6 @@ spring:
     password: aialm2
     driver-class-name: oracle.jdbc.driver.OracleDriver
   jpa:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: create-drop
+    hibernate:
+      ddl-auto: create
     show-sql: true
