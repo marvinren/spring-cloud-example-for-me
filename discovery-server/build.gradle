@@ -1,5 +1,28 @@
 dependencies{
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.springframework.cloud:spring-cloud-config-server'
+
+    // tag::jetty[]
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-devtools")
+
+    compile("org.springframework.cloud:spring-cloud-starter-eureka-server")
+    compile('org.springframework.cloud:spring-cloud-config-server')
+
+}
+
+defaultTasks 'bootRun'
+
+bootRepackage {
+    mainClass = 'com.ai.server.discovery.DiscoveryServerApplication'
+}
+
+springBoot {
+    mainClass = 'com.ai.server.discovery.DiscoveryServerApplication'
+    executable = true
+    buildInfo()
 }

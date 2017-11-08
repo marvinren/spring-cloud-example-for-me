@@ -1,6 +1,5 @@
 server:
   port: 8761
-
 spring:
   profiles:
     active: native
@@ -13,10 +12,9 @@ eureka:
   instance:
     hostname: localhost
   server:
-    enable-self-preservation: false
+    enable-self-preservation: true
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
-
+      defaultZone: http://${eureka.instance.hostname:localhost}:${server.port:8761}/eureka/

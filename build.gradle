@@ -1,3 +1,5 @@
+
+
 buildscript {
 
     repositories {
@@ -23,14 +25,17 @@ buildscript {
 }
 
 allprojects {
+
+    apply plugin: 'idea'
+
     group 'com.ai.app'
-    version '${version}'
+    version "${version}"
 
     repositories {
         mavenLocal()
-//        maven {
-//            url 'http://10.1.195.28:8081/nexus/content/groups/public/'
-//        }
+        maven {
+            url 'http://10.1.195.28:8081/nexus/content/groups/public/'
+        }
         maven {
             url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
@@ -41,7 +46,7 @@ allprojects {
 subprojects {
 
     apply plugin: 'java'
-    apply plugin: 'idea'
+
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
@@ -59,9 +64,8 @@ subprojects {
         }
     }
 
-
     jar {
-        version = "$version"
+        version = "${version}"
     }
 
 

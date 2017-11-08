@@ -1,7 +1,7 @@
 rootProject.name = 'aialm'
 include 'discovery-server'
 include 'api-gateway-server'
-include 'auth-server'
+include 'uaa-server'
 include 'core'
 include 'task-service:task-service-impl'
 findProject(':task-service:task-service-impl')?.name = 'task-service-impl'

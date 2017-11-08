@@ -1,0 +1,50 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  application:
+      name: uaa-server
+
+  jpa:
+    open-in-view: true
+    database: ORACLE
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    platform: oracle
+    url: jdbc:oracle:thin:@//10.1.195.102:1521/AIDB
+    username: aialm2
+    password: aialm2
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+#  redis:
+#    host: 10.1.195.103
+#    username: root
+#    password:
+
+server:
+  port: 9999
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+
+
+
+logging.level.org.springframework.security: DEBUG
+logging.level.org.springframework: DEBUG
+
+
+aiuaa:
+  security:
+    clientAuthorization:
+      clientId: micro-client
+      clientSecret: mysecret
+      webappClientId: web_app
+      webappClientSecret: mysecret

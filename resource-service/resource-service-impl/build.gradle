@@ -2,6 +2,19 @@ apply from: '../../gradle/microservice.gradle'
 apply from: '../../gradle/lombok.gradle'
 apply from: '../../gradle/mapstruct.gradle'
 
+
 dependencies {
     compile project(":task-service:task-service-api")
+}
+
+defaultTasks 'bootRun'
+
+bootRepackage {
+    mainClass = 'com.ai.app.resource.ResourceServiceApplication'
+}
+
+springBoot {
+    mainClass = 'com.ai.app.resource.ResourceServiceApplication'
+    executable = true
+    buildInfo()
 }

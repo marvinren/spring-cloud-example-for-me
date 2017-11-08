@@ -8,6 +8,9 @@ dependencies {
     //actuator
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 
+    //aop
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+
     //jpa
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'com.zaxxer:HikariCP'

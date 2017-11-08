@@ -7,3 +7,15 @@ dependencies{
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
 }
+
+defaultTasks 'bootRun'
+
+bootRepackage {
+    mainClass = 'com.ai.app.server.apigateway.ApiGatewayApplication'
+}
+
+springBoot {
+    mainClass = 'com.ai.app.server.apigateway.ApiGatewayApplication'
+    executable = true
+    buildInfo()
+}

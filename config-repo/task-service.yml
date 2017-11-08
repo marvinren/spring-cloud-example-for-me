@@ -15,6 +15,10 @@ spring:
     password: aialm2
     driver-class-name: oracle.jdbc.driver.OracleDriver
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: create
     show-sql: true
+
+logback:
+  loglevel: DEBUG

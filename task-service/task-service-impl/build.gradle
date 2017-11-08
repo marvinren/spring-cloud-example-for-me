@@ -8,3 +8,20 @@ dependencies{
     compile ("org.quartz-scheduler:quartz-jobs:2.3.0")
 
 }
+
+
+dependencies {
+    compile project(":task-service:task-service-api")
+}
+
+defaultTasks 'bootRun'
+
+bootRepackage {
+    mainClass = 'com.ai.app.task.TaskServiceApplication'
+}
+
+springBoot {
+    mainClass = 'com.ai.app.task.TaskServiceApplication'
+    executable = true
+    buildInfo()
+}
